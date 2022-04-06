@@ -20,22 +20,18 @@ class ItemQuantity {
             throw new FloatingPointQuantityException(quantity)
         }
 
-        if (quantity < 0) {
+        if (quantity <= 0) {
             throw new NonPositiveQuantityException(quantity)
         }
 
         return new ItemQuantity(quantity)
     }
 
-    public add(quantity: Quantity): Quantity {
+    public add(quantity: ItemQuantity): ItemQuantity {
         return new ItemQuantity(quantity._value + this._value);
     }
 
-    public remove(quantity: Quantity): Quantity {
+    public remove(quantity: ItemQuantity): ItemQuantity {
         return ItemQuantity.createFrom(this._value - quantity._value);
-    }
-
-    public equals(quantity: Quantity): boolean {
-        return quantity._value === this._value;
     }
 }

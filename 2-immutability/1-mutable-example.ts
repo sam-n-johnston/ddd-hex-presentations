@@ -11,7 +11,7 @@ class OrderService {
 
         order.removeItem(item)
         
-        // Item CANNOT be changed
+        // Item CAN be changed
         this.stockService.unreserveItem(order.id, item)
         this.warehouseService.removeItem(order.id, item)
     }
